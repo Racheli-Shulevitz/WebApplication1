@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script defer src="Home.js"></script>
+    <link href="Home.css" rel="stylesheet"/>
+</head>
+<body>
+
+    <input placeholder="email" type="email" id="emailLogin" /><br />
+    <input placeholder="password" type="password" id="passwordLogin" /><br />
+    <button onclick="Login()">Login</button>
+    <button onclick="Visibility()">create new user</button>
+
+    <div class="login">
+        <input placeholder="email" type="email" id="email" /><br />
+        <input placeholder="first name" type="text" id="firstName" /><br />
+        <input placeholder="last name" type="text" id="lastname" /><br />
+        <input placeholder="password" type="password" id="password" onblur="CheckPassword()" />
+        <meter id="strengthMeter" min="0" max="4" value="0"></meter>
+        <br />
+        <button onclick="SighnIn()">sighnIn</button>
+    </div>
+</body>
+</html>

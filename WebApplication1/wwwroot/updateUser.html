@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script defer src="updateuser.js"></script>
+    <script defer src="Home.js"></script>
+</head>
+<body>
+
+    <input placeholder="email" type="email" id="emailU" /><br />
+    <input placeholder="first name" type="text" id="firstNameU" /><br />
+    <input placeholder="last name" type="text" id="lastnameU" /><br />
+    <input placeholder="password" type="password" id="password" onblur="CheckPassword()" />
+    <meter id="strengthMeter" min="0" max="4" value="0"></meter>
+    <br />
+    <button onclick="Update()">update</button>
+
+</body>
+</html>
