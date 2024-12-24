@@ -21,8 +21,9 @@ namespace Repositories
         //login
         public async Task<User> Post(string Email, string Password)
         {
-           return await _context.Users.FirstOrDefaultAsync(user=> user.Email == Email && user.Password == Password);
-            _context.SaveChangesAsync();
+           User u = await _context.Users.FirstOrDefaultAsync(user=> user.Email == Email && user.Password == Password);
+            await _context.SaveChangesAsync();
+            return u;
 
         }
 
@@ -31,7 +32,7 @@ namespace Repositories
         public async Task<User> Post(User user)
         {
            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
 
             return user;
 
@@ -48,20 +49,26 @@ namespace Repositories
             return userToUpdate;
         }
 
-        // GET 
-        public User Get(int id)
+        //// GET 
+        //public User Get(int id)
+        //{
+        //    using (StreamReader reader = System.IO.File.OpenText(filePath))
+        //    {
+        //        string? currentUserInFile;
+        //        while ((currentUserInFile = reader.ReadLine()) != null)
+        //        {
+        //            User user = JsonSerializer.Deserialize<User>(currentUserInFile);
+        //            if (user.Id == id)
+        //                return user;
+        //        }
+        //    }
+        //    return null;
+        //}
+
+        //get by id
+        public async Task<User> Get(int id)
         {
-            using (StreamReader reader = System.IO.File.OpenText(filePath))
-            {
-                string? currentUserInFile;
-                while ((currentUserInFile = reader.ReadLine()) != null)
-                {
-                    User user = JsonSerializer.Deserialize<User>(currentUserInFile);
-                    if (user.Id == id)
-                        return user;
-                }
-            }
-            return null;
+            return await _context.Users.FirstOrDefaultAsync(user => user.Id == id);
         }
     }
 }

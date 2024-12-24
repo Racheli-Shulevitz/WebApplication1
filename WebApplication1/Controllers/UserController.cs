@@ -3,6 +3,8 @@ using Services;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using Entities;
+using AutoMapper;
+using DTO;
 //using (StreamReader reader = System.IO.File.OpenText("M:\\web api\\MyProject\\WebApplication1\\WebApplication1\\Users.txt")) ;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,12 +15,14 @@ namespace OurStore2.Controllers
     public class UserController : ControllerBase
     {
         IUserService _userService;
+        IMapper mapper;
 
-        string filePath = "M:\\web api\\MyProject\\WebApplication1\\WebApplication1\\Users.txt";
+        //string filePath = "M:\\web api\\MyProject\\WebApplication1\\WebApplication1\\Users.txt";
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMapper _mapper)
         {
             _userService = userService;
+            mapper = _mapper;
         }
 
 
@@ -43,29 +47,40 @@ namespace OurStore2.Controllers
 
         // POST api/ add user
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] User user)
+        public async Task<ActionResult<User>> Post([FromBody] AddUserDTO user)
         {
-            User newUser = await _userService.Post(user);
-            if(newUser == null)
+            User? newUser = await _userService.Post(mapper.Map<AddUserDTO, User>(user));
+            if (newUser == null)
                 return BadRequest();
-            return CreatedAtAction(nameof(Get), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(Get), new { id = newUser.Id }, mapper.Map<User, UserDTO>(newUser));
         }
 
         // PUT api/5
         [HttpPut("{Id}")]
-        public async Task<IActionResult> Put(int Id, [FromBody] User userToUpdate)
+        public async Task<IActionResult> Put(int Id, [FromBody] AddUserDTO userToUpdate)
         {
-            User newU = await _userService.Put(Id, userToUpdate);
+            User newU = await _userService.Put(Id, mapper.Map<AddUserDTO, User>(userToUpdate));
             return newU == null ? BadRequest() : Ok();
         }
 
     
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public ActionResult<User> Get(int id)
+        public async Task<ActionResult<UserDTO>> Get(int id)
         {
-            User checkUser = _userService.Get(id);
-            return checkUser != null ? Ok(checkUser) : NoContent();
+            User checkUser = await _userService.Get(id);
+            UserDTO userDTO =  mapper.Map<User, UserDTO>(checkUser);
+            //return userDTO != null ? Ok(userDTO) : NoContent();
+          //  if(userDTO)
+          //return checkUser != null ?  Ok(userDTO):  NoContent();
+
+
+
+            if (userDTO != null)
+                return Ok(userDTO);
+            else
+                return NoContent();
+
         }
 
         // DELETE api/<UserController>/5

@@ -36,12 +36,14 @@ namespace Services
 
         // POST api/<UserController> add user
    
-        public Task<User> Post(User user)
+        public async Task<User> Post(User user)
         {
             if (Post(user.Password) > 2)
-                return _userRepository.Post(user);
+                return await _userRepository.Post(user);
             else
+        
                 return null;
+                
 
         }
 
@@ -54,14 +56,10 @@ namespace Services
                 return _userRepository.Post(userToUpdate);
             else
                 return null;
-            //int code = Post(userToUpdate.Password);
-            //if (code < 3)
-            //    throw new Exception("Password is week, Please enter a different password");
-            //_userRepository.Put(Id, userToUpdate);
         }
 
         // GET 
-        public User Get(int id)
+        public Task<User> Get(int id)
         {
             return _userRepository.Get(id);
         }
