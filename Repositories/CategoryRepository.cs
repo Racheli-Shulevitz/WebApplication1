@@ -20,7 +20,7 @@ namespace Repositories
         {
             return await context.Categories.ToListAsync();
         }
-
+        //
         //get by id
         //public async Task<Category> Get(int id)
         //{

@@ -47,7 +47,7 @@ namespace OurStore2.Controllers
                 return Ok(newOrderDTO); CreatedAtAction(nameof(Get), new { id = newOrderDTO.OrderId }, newOrderDTO);
             return BadRequest();
         }
-
+//
         //// PUT api/<OrderController>/5
         //[HttpPut("{id}")]
         //public void Put(int id, [FromBody] string value)

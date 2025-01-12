@@ -92,7 +92,7 @@ const colorMater = (data) => {
             const dataPost = await responsePost.json();
             alert(`welcome ${dataPost.lastName}!`)
             sessionStorage.setItem("currentUser", dataPost.id)
-            window.location.href = "updateUser.html"
+            window.location.href = "Products.html"
         }
         catch {
             alert("No Content");

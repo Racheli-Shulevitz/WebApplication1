@@ -31,6 +31,7 @@ namespace Repositories
             List<Product> products = await query.ToListAsync();
             return products;
         }
+        //
         //get by id
         //public async Task<Product> Get(int id)
         //{

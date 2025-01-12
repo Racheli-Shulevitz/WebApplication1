@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\CSS\ShoppingBag.css" />
     <_ContentIncludedByDefault Remove="wwwroot\Product.css" />
   </ItemGroup>
 

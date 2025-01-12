@@ -30,7 +30,7 @@ namespace OurStore2.Controllers
             List<ProductDTO> productListDTO = mapper.Map<List<Product>,List<ProductDTO>>(productList);
             return productListDTO != null? Ok(productListDTO) :BadRequest();
         }
-
+        //
         // GET api/<ProductController>/5
         //[HttpGet("{id}")]
         //public async Task<ActionResult<Product>> Get(int id)

@@ -21,7 +21,7 @@ namespace Services
         {
             return productRepository.Get(desc, minPrice, maxPrice, categoryIds);
         }
-
+        //
         //get by id
         //public Task<Product> Get(int id)
         //{

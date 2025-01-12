@@ -62,7 +62,7 @@ namespace OurStore2.Controllers
             User newU = await _userService.Put(Id, mapper.Map<AddUserDTO, User>(userToUpdate));
             return newU == null ? BadRequest() : Ok();
         }
-
+        //
     
         // GET api/<UserController>/5
         [HttpGet("{id}")]

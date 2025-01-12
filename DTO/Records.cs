@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace DTO
 {
     //Get category 
-    public record CategoryDTO(string CategoryName);
+    public record CategoryDTO(string CategoryName, int CategoryId);
     
 
     //Get product
-    public record ProductDTO(string ProductName, string Description,double Price,string CategoryCategoryName);
+    public record ProductDTO(string ProductName, string Description,double Price,string CategoryCategoryName,string Image,int ProductId);
 
 
 
@@ -25,7 +25,7 @@ namespace DTO
 
 
 
-    public record OrderItemDTO(int ProductId, int Quantity);
+    public record OrderItemDTO(int ProductId);
 
 
  

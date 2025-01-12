@@ -80,6 +80,7 @@ public partial class OurStoreContext : DbContext
         {
             entity.Property(e => e.ProductId).HasColumnName("Product_Id");
             entity.Property(e => e.CategoryId).HasColumnName("Category_Id");
+            entity.Property(e => e.Image).HasMaxLength(50);
             entity.Property(e => e.ProductName)
                 .HasMaxLength(50)
                 .HasColumnName("Product_Name");

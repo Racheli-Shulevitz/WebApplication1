@@ -16,7 +16,7 @@ namespace Services
             categoryRepository = _categoryRepository;
         }
 
-        //get all
+        //get all//
         public Task<List<Category>> Get()
         {
             return categoryRepository.Get();

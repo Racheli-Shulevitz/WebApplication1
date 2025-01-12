@@ -28,7 +28,7 @@ namespace OurStore2.Controllers
             List<CategoryDTO> categoriesDTO = mapper.Map<List<Category>, List<CategoryDTO>>(categories);
             return categoriesDTO != null ? Ok(categoriesDTO) : BadRequest();
         }
-
+        //
     //    // GET api/<CategoryController>/5
     //    [HttpGet("{id}")]
     //    public string Get(int id)
