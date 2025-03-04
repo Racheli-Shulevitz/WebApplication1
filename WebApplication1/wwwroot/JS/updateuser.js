@@ -28,3 +28,22 @@ const Update = async() => {
     }
     //
 }
+const load = async () => {
+    let Id = JSON.parse(sessionStorage.getItem("currntUser"))
+    try {
+        const responseUser = await fetch(`/api/user/${Id}`, {
+            method: 'Get',
+            headers: {
+
+                'Content-Type': 'application/json'
+            },
+        });
+        if (responseGet.status == 200) {
+            const user = await responseUser.json();
+        }
+    }
+    catch {
+        console.log("user not found");
+    }
+
+}

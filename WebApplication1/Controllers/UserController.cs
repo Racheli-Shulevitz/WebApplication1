@@ -41,7 +41,7 @@ namespace OurStore2.Controllers
         [Route("Login")]
         public async Task<ActionResult<User>> Post([FromQuery] string Email, string Password)
         {
-            logger.LogCritical($"Login Attempted with User name,{Email} and password {Password}", Email, Password);
+            logger.LogInformation($"Login Attempted with User name,{Email} and password {Password}", Email, Password);
 
             User checkUser =await _userService.Post(Email,Password);
             return checkUser != null ? Ok(checkUser) : NoContent();

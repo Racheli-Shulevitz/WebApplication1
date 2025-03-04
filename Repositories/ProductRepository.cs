@@ -33,10 +33,10 @@ namespace Repositories
         }
         //
         //get by id
-        //public async Task<Product> Get(int id)
-        //{
-        //    return await context.Products.FirstOrDefaultAsync(item => item.ProductId == id);
-        //}
+        public async Task<Product> Get(int id)
+        {
+            return await context.Products.FirstOrDefaultAsync(item => item.ProductId == id);
+        }
 
         //add
         //public async Task<Product> Post(Product product)

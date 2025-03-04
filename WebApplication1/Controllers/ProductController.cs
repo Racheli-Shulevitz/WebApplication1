@@ -32,13 +32,13 @@ namespace OurStore2.Controllers
         }
         //
         // GET api/<ProductController>/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Product>> Get(int id)
-        //{
-        //    ////doesnt workkkkkkkk
-        //    Product product = await ProductService.Get(id);
-        //    return product != null ? Ok() : BadRequest();
-        //}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> Get(int id)
+        {
+            ////doesnt workkkkkkkk
+            Product product = await ProductService.Get(id);
+            return product != null ? Ok() : BadRequest();
+        }
 
         //// POST api/<ProductController>
         //[HttpPost]

@@ -7,7 +7,9 @@ using Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<OurStoreContext>(options => options.UseSqlServer("Server=SRV2\\PUPILS;Database=Our_Store;Trusted_Connection=True;TrustServerCertificate=True"));
+builder.Services.AddDbContext<OurStoreContext>(options => options.UseSqlServer("Server=SRV2\\PUPILS;Database=Our_Store;Trusted_Connection=True;TrustServerCertificate=True." +
+    "" +
+    ""));
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 

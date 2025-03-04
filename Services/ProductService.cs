@@ -23,10 +23,10 @@ namespace Services
         }
         //
         //get by id
-        //public Task<Product> Get(int id)
-        //{
-        //    return productRepository.Get(id);
-        //}
+        public Task<Product> Get(int id)
+        {
+            return productRepository.Get(id);
+        }
 
         ////add
         //public async Task<Product> Post(Product product)
