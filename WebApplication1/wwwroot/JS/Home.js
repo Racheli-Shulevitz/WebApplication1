@@ -11,7 +11,7 @@ const SighnIn = async () => {
     if (newUser.FirstName.length > 15 || newUser.LastName.length > 15)
        return alert("name must be up to 15 letters")
     if (!newUser.Email || !newUser.Password)
-       return alert("email and password are required fields")
+       return alert("email and password are required fields")//aaaa
 
     try {
         const responsePost = await fetch('api/user', {
